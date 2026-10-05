@@ -19,7 +19,7 @@
         <h1>Course Registration Form</h1>
         <p class="subtitle">Please fill in the details below to register for your course</p>
 
-        <form>
+        <form id="courseForm" novalidate>
 
             <!-- Personal Information -->
             <fieldset>
@@ -246,9 +246,58 @@
 
             </div>
 
+            <p id="formStatus" class="form-status" aria-live="polite"></p>
+
         </form>
 
     </div>
+
+    <script>
+        const courseForm = document.getElementById('courseForm');
+        const experienceInput = document.getElementById('experience');
+        const rangeValue = document.getElementById('rangeValue');
+        const formStatus = document.getElementById('formStatus');
+        let shouldClearStatus = true;
+
+        function updateExperienceLabel() {
+            rangeValue.textContent = experienceInput.value;
+        }
+
+        experienceInput.addEventListener('input', updateExperienceLabel);
+
+        courseForm.addEventListener('reset', () => {
+            setTimeout(() => {
+                updateExperienceLabel();
+
+                if (shouldClearStatus) {
+                    formStatus.textContent = '';
+                    formStatus.classList.remove('visible');
+                }
+
+                shouldClearStatus = true;
+            }, 0);
+        });
+
+        courseForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!courseForm.checkValidity()) {
+                courseForm.reportValidity();
+                return;
+            }
+
+            const studentName = document.getElementById('name').value.trim();
+            const displayName = studentName || 'Student';
+            formStatus.textContent = `Registration successful for ${displayName}!`;
+            formStatus.classList.add('visible');
+            shouldClearStatus = false;
+
+            courseForm.reset();
+            updateExperienceLabel();
+        });
+
+        updateExperienceLabel();
+    </script>
 
 </body>
 </html>
