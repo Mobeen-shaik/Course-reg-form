@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Registration Form</title>
+
+    <!-- Connecting CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Course Registration Form</h1>
+        <p class="subtitle">Please fill in the details below to register for your course</p>
+
+        <form>
+
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password"
+                           placeholder="Enter password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone"
+                           placeholder="Enter phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="gender" value="male">
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="female">
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+            <!-- Course Information -->
+            <fieldset>
+                <legend>Course Information</legend>
+
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+
+                    <select id="course" name="course" required>
+                        <option value="">-- Select Course --</option>
+                        <option value="cse">Computer Science Engineering</option>
+                        <option value="ece">Electronics and Communication</option>
+                        <option value="eee">Electrical and Electronics</option>
+                        <option value="mechanical">Mechanical Engineering</option>
+                        <option value="civil">Civil Engineering</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="ds">Data Science</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="year">Year of Study</label>
+
+                    <select id="year" name="year">
+                        <option value="">-- Select Year --</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Mode of Study</label>
+
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="mode" value="online">
+                            Online
+                        </label>
+
+                        <label>
+                            <input type="radio" name="mode" value="offline">
+                            Offline
+                        </label>
+
+                        <label>
+                            <input type="radio" name="mode" value="hybrid">
+                            Hybrid
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Select Subjects</label>
+
+                    <div class="checkbox-group">
+
+                        <label>
+                            <input type="checkbox" name="subject" value="html">
+                            HTML
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="subject" value="css">
+                            CSS
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="subject" value="javascript">
+                            JavaScript
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="subject" value="python">
+                            Python
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="subject" value="java">
+                            Java
+                        </label>
+
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+            <!-- Additional Information -->
+            <fieldset>
+                <legend>Additional Information</legend>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+
+                    <textarea id="address" name="address"
+                              rows="5"
+                              placeholder="Enter your complete address"></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="photo">Upload Student Photo</label>
+                    <input type="file" id="photo" name="photo">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="time">Preferred Class Time</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="color">Choose ID Card Color</label>
+                    <input type="color" id="color" name="color" value="#3498db">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="experience">
+                        Programming Experience: <span id="rangeValue">5</span>/10
+                    </label>
+
+                    <input type="range"
+                           id="experience"
+                           name="experience"
+                           min="0"
+                           max="10"
+                           value="5"
+                           oninput="rangeValue.innerText = this.value">
+                </div>
+
+            </fieldset>
+
+
+            <!-- Terms -->
+            <div class="terms">
+
+                <label>
+                    <input type="checkbox" required>
+                    I agree to the terms and conditions.
+                </label>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button type="submit" class="register-btn">
+                    Register
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+
+                <button type="button" class="info-btn"
+                        onclick="alert('Please fill all the required information before registering.')">
+                    Information
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
+```
